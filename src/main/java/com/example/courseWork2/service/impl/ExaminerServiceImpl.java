@@ -1,11 +1,14 @@
 package com.example.courseWork2.service.impl;
 
+import com.example.courseWork2.exception.BadRequest;
 import com.example.courseWork2.service.ExaminerService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ExaminerServiceImpl implements ExaminerService {
     private JavaQuestionService questionService;
 
-    @Override//уф я тут зависла
+    @Override
     public String[] getQuestions(int amount) {
         String[] arr = new String[questionService.getSizeOfSet()];
         questionService.getAllQuestions();
@@ -13,6 +16,7 @@ public class ExaminerServiceImpl implements ExaminerService {
 
         for (int i = 0; i < amount; i++) {
             int item = questionService.getRandomQuestion(amount);
+            if (item > questionService.getAllQuestions().size()) throw new BadRequest();
             arr1[i] = arr[item];
         }
         return arr1;

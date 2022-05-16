@@ -1,7 +1,7 @@
 package com.example.courseWork2.service.impl;
 
 import com.example.courseWork2.data.Question;
-import com.example.courseWork2.exception.BAD_REQUEST;
+import com.example.courseWork2.exception.BadRequest;
 import com.example.courseWork2.exception.NotFoundException;
 import com.example.courseWork2.service.QuestionService;
 import org.springframework.stereotype.Service;
@@ -28,11 +28,12 @@ public class JavaQuestionService implements QuestionService {
     public int getSizeOfSet() {
         return questions.size();
     }
+
     @Override
     public String addQuestion(String question, String answer) {
         Question question1 = new Question(question, answer);
         if (questions.contains(question1)) {
-            throw new BAD_REQUEST();
+            throw new BadRequest();
         }
 
         questions.add(new Question(question, answer));
@@ -43,7 +44,7 @@ public class JavaQuestionService implements QuestionService {
     public String addQuestion(String question) {
         Question question2 = new Question(question, null);
         if (questions.contains(question2)) {
-            throw new BAD_REQUEST();
+            throw new BadRequest();
         }
         questions.add(new Question(question));
         return "Вопрос внесен " + question;
@@ -64,6 +65,6 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public int getRandomQuestion(int max) {
-        return r.nextInt((int) (Math.random() * max));
+        return r.nextInt(10) + 1;
     }
 }

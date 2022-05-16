@@ -38,15 +38,11 @@ public class Question implements QuestionInterface {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Question question = (Question) obj;
-        if (this == question) {
-            return true;
-        } else if ((this.question.equals(question.getQuestion())) &&
-                (this.answer.equals(question.getAnswer()))) {
-            return true;
-        } else
-            return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Question question1 = (Question) o;
+        return Objects.equals(question, question1.question) && Objects.equals(answer, question1.answer);
     }
 
 }

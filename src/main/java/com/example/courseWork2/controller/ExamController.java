@@ -15,7 +15,6 @@ public class ExamController {
         this.examinerService = examinerService;
     }
 
-
     @GetMapping("/all")
     public String getQuestions(@RequestParam(required = true) int amount) {
         return "Вопросы: " + examinerService.getQuestions(amount);
