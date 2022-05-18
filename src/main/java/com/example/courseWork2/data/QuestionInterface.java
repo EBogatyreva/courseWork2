@@ -5,6 +5,4 @@ public interface QuestionInterface {
 
     String getAnswer();
 
-    //String Question(String question, String answer);
-
 }

@@ -18,19 +18,9 @@ public class JavaQuestionController {
         this.javaQuestionService = javaQuestionService;
     }
 
-/*    @GetMapping("/java")
-    public Set<Question> getQuestionList() throws NotFoundException  {
-        return (Set<Question>) javaQuestionService.getAllQuestions();
-    }*/
-
     @GetMapping("/java/add")
     public String add(@RequestParam(required = true) String question, @RequestParam(required = true) String answer) {
         return "Вопрос: " + javaQuestionService.addQuestion(question, answer) + " добавлен";
-    }
-
-    @GetMapping("/java/add1")
-    public String add(@RequestParam(required = true) String question) {
-        return "Вопрос: " + javaQuestionService.addQuestion(question) + " добавлен";
     }
 
     @GetMapping("/java/remove")

@@ -13,7 +13,7 @@ public interface QuestionService {
 
     Question removeQuestion(String question, String answer) throws NotFoundException;
 
-    Collection getAllQuestions();
+    Collection<Question> getAllQuestions();
 
     int getRandomQuestion(int max);
 

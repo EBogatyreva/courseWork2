@@ -7,19 +7,26 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static com.example.courseWork2.Constant.questions;
+import static com.example.courseWork2.Constant.QUESTION_SET;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class JavaQuestionServiceTest {
+//    ______________________________
+/*        почему не нужен мок?!!
+     ПОТОМУ ЧТО У НЕГО НЕТ ПРЯМОЙ ЗАВИСИМОСТИ?
+
     @Mock
-    private JavaQuestionService javaQuestionService;
+    private JavaQuestionService javaQuestionService;*
+
     @InjectMocks
-    private JavaQuestionService out;
+    private JavaQuestionService out;*/
+
+    private final JavaQuestionService out = new JavaQuestionService();
 
     @org.junit.jupiter.api.Test
     void getEmployeeList() {
-        assertEquals(questions, out.getAllQuestions());
+        assertEquals(QUESTION_SET, out.getAllQuestions());
     }
 
     @org.junit.jupiter.api.Test
@@ -31,7 +38,7 @@ public class JavaQuestionServiceTest {
     @org.junit.jupiter.api.Test
     void removeQuestion() {
         Question expected = new Question("1", "1");
-        assertEquals(expected,out.removeQuestion("1", "1"));
+        assertEquals(expected, out.removeQuestion("1", "1"));
     }
 }
 
