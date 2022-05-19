@@ -14,16 +14,11 @@ import java.util.Set;
 @Service
 public class JavaQuestionService implements QuestionService {
     Random r = new Random();
-    private Set<Question> questions;//уникальное множество
+    private Set<Question> questions;
 
     public JavaQuestionService() {
         this.questions = new HashSet<>();
-        questions.add(new Question("Какие особенности есть у Java ", "ООП концепты, кроссплатформенность, высокая производительность, мультипоточность"));
-        questions.add(new Question("Что такое наследование ", "Под наследованием подразумевается, что один класс может наследовать(“extends”) другой класс"));
-        questions.add(new Question("Что такое инкапсуляция ", "Инкапсуляция — это сокрытие реализации при помощи модификаторов доступа, при помощи геттеров и сеттеров. Это делается для того, чтобы закрыть доступ для внешнего использования."));
-        questions.add(new Question("Что такое полиморфизм ", "Полиморфизм — это способность программы идентично использовать объекты с одинаковым интерфейсом без информации о конкретном типе этого объекта. Один интерфейс — множество реализаций."));
-        questions.add(new Question("Что такое Local Variable ", "Local variable — это переменная, которая определена внутри метода и существует вплоть до того момента, пока выполняется этот метод. Как только выполнение закончится, локальная переменная перестанет существовать."));
-    }
+   }
 
     public int getSizeOfSet() {
         return questions.size();
@@ -65,6 +60,6 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public int getRandomQuestion(int max) {
-        return r.nextInt(10) + 1;
+        return r.nextInt(10) + 1;//так рандомное число возвращается)
     }
 }

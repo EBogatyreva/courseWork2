@@ -2,8 +2,8 @@ package com.example.courseWork2.data;
 
 import java.util.Objects;
 
-public class Question implements QuestionInterface {
-    private String question;
+public class Question {
+    private final String question;
     private String answer;
 
     public Question(String question, String answer) {
@@ -14,12 +14,10 @@ public class Question implements QuestionInterface {
         this.question = question;
     }
 
-    @Override
     public String getQuestion() {
         return question;
     }
 
-    @Override
     public String getAnswer() {
         return answer;
     }
