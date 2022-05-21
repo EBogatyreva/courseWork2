@@ -9,12 +9,9 @@ public interface QuestionService {
 
     String addQuestion(String question, String answer);
 
-    String addQuestion(String question);
-
     Question removeQuestion(String question, String answer) throws NotFoundException;
 
     Collection<Question> getAllQuestions();
 
-    int getRandomQuestion(int max);
-
+    Question getRandomQuestion(int max);
 }

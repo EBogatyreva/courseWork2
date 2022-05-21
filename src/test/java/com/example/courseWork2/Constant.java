@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Constant {
-    public static final Set<Question> questions = new HashSet<>(List.of(
+    static final Set<Question> questions = new HashSet<>(List.of(
             new Question("Какие особенности есть у Java ", "ООП концепты, кроссплатформенность, высокая производительность, мультипоточность"),
             new Question("Что такое наследование ", "Под наследованием подразумевается, что один класс может наследовать(“extends”) другой класс"),
             new Question("Что такое инкапсуляция ", "Инкапсуляция — это сокрытие реализации при помощи модификаторов доступа, при помощи геттеров и сеттеров. Это делается для того, чтобы закрыть доступ для внешнего использования."),

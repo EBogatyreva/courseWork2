@@ -1,5 +1,9 @@
 package com.example.courseWork2.service;
 
+import com.example.courseWork2.data.Question;
+
+import java.util.Collection;
+
 public interface ExaminerService {
-    String[] getQuestions(int amount);
+    Collection<Question> getQuestions(int amount);
 }

@@ -6,10 +6,7 @@ import com.example.courseWork2.exception.NotFoundException;
 import com.example.courseWork2.service.QuestionService;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class JavaQuestionService implements QuestionService {
@@ -34,17 +31,6 @@ public class JavaQuestionService implements QuestionService {
         questions.add(new Question(question, answer));
         return "Вопрос/ответ внесены " + question + " " + answer;
     }
-
-    @Override
-    public String addQuestion(String question) {
-        Question question2 = new Question(question, null);
-        if (questions.contains(question2)) {
-            throw new BadRequest();
-        }
-        questions.add(new Question(question));
-        return "Вопрос внесен " + question;
-    }
-
     @Override
     public Question removeQuestion(String question, String answer) throws NotFoundException {//сделать проверку если он идет вместе с ответом
         Question question3 = new Question(question, answer);
@@ -59,7 +45,8 @@ public class JavaQuestionService implements QuestionService {
     }
 
     @Override
-    public int getRandomQuestion(int max) {
-        return r.nextInt(10) + 1;//так рандомное число возвращается)
+    public Question getRandomQuestion(int max) {
+        List<Question> questionList= new ArrayList<>(questions);
+        return questionList.get(r.nextInt(questions.size()));
     }
 }

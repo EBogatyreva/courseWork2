@@ -20,7 +20,7 @@ public class JavaQuestionController {
 
     @GetMapping("/java/add")
     public String add(@RequestParam(required = true) String question, @RequestParam(required = true) String answer) {
-        return "Вопрос: " + javaQuestionService.addQuestion(question, answer) + " добавлен";
+        return javaQuestionService.addQuestion(question, answer);
     }
 
     @GetMapping("/java/remove")

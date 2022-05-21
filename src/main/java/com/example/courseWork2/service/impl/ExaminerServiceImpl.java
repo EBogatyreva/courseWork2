@@ -1,25 +1,27 @@
 package com.example.courseWork2.service.impl;
 
+import com.example.courseWork2.data.Question;
 import com.example.courseWork2.exception.BadRequest;
 import com.example.courseWork2.service.ExaminerService;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
     private JavaQuestionService questionService;
 
     @Override
-    public String[] getQuestions(int amount) {
-        String[] arr = new String[questionService.getSizeOfSet()];
-        questionService.getAllQuestions();
-        String[] arr1 = new String[amount];
+    public Collection<Question> getQuestions(int amount) {
+        Set<Question> rndQuestionSet = new HashSet<>();
 
-        for (int i = 0; i < amount; i++) {
-            int item = questionService.getRandomQuestion(amount);
-            if (item > questionService.getAllQuestions().size()) throw new BadRequest();
-            arr1[i] = arr[item];
+        int iCount = Collections.frequency(rndQuestionSet, 0);
+        if (amount > iCount) throw new BadRequest();
+
+        while (rndQuestionSet.size() < amount) {
+            rndQuestionSet.add(questionService.getRandomQuestion(amount));
         }
-        return arr1;
+        return rndQuestionSet;
     }
 
 }
