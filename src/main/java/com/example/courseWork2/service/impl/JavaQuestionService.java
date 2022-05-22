@@ -15,7 +15,7 @@ public class JavaQuestionService implements QuestionService {
 
     public JavaQuestionService() {
         this.questions = new HashSet<>();
-   }
+    }
 
     public int getSizeOfSet() {
         return questions.size();
@@ -29,8 +29,9 @@ public class JavaQuestionService implements QuestionService {
         }
 
         questions.add(new Question(question, answer));
-        return "Вопрос/ответ внесены " + question + " " + answer;
+        return "Вопрос "+question + " Ответ "+ answer;
     }
+
     @Override
     public Question removeQuestion(String question, String answer) throws NotFoundException {//сделать проверку если он идет вместе с ответом
         Question question3 = new Question(question, answer);
@@ -45,8 +46,8 @@ public class JavaQuestionService implements QuestionService {
     }
 
     @Override
-    public Question getRandomQuestion(int max) {
-        List<Question> questionList= new ArrayList<>(questions);
+    public Question getRandomQuestion() {
+        List<Question> questionList = new ArrayList<>(questions);
         return questionList.get(r.nextInt(questions.size()));
     }
 }

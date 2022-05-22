@@ -25,8 +25,8 @@ public class Question {
 
     @Override
     public String toString() {
-        return "{" + " Вопрос='" + getQuestion() + '\'' +
-                " Ответ=" + getAnswer() +
+        return "{" + " Вопрос'" + getQuestion() + '\'' +
+                " Ответ" + getAnswer() +
                 '}';
     }
 

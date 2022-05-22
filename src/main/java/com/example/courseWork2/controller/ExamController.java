@@ -2,10 +2,7 @@ package com.example.courseWork2.controller;
 
 import com.example.courseWork2.data.Question;
 import com.example.courseWork2.service.impl.ExaminerServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -17,8 +14,8 @@ public class ExamController {
     public ExamController(ExaminerServiceImpl examinerService) {
         this.examinerService = examinerService;
     }
-    @GetMapping("/all")
-    public Collection<Question> getQuestions(@RequestParam(required = true) int amount) {
+    @GetMapping("/{amount}")
+    public Collection<Question> getQuestions(@PathVariable int amount) {
         return examinerService.getQuestions(amount);
     }
 }

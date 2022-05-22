@@ -15,11 +15,11 @@ public class ExaminerServiceImpl implements ExaminerService {
     public Collection<Question> getQuestions(int amount) {
         Set<Question> rndQuestionSet = new HashSet<>();
 
-        int iCount = Collections.frequency(rndQuestionSet, 0);
-        if (amount > iCount) throw new BadRequest();
+        int size = questionService.getSizeOfSet();
+        if (amount > size) throw new BadRequest();
 
         while (rndQuestionSet.size() < amount) {
-            rndQuestionSet.add(questionService.getRandomQuestion(amount));
+            rndQuestionSet.add(questionService.getRandomQuestion());
         }
         return rndQuestionSet;
     }

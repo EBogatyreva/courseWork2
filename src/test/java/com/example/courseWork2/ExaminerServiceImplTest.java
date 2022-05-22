@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import static com.example.courseWork2.Constant.questions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -21,12 +22,12 @@ public class ExaminerServiceImplTest {
     private JavaQuestionService examinerService;
     @InjectMocks
     private ExaminerServiceImpl out;
+
     @org.junit.jupiter.api.Test
     void getQuestionsRandom() {
-        Question expected = new Question("1", "2");
-        examinerService.addQuestion("1", "2");
-
-        when(examinerService.getRandomQuestion(1)).thenReturn(new Question("1","2"));
-        assertEquals( new HashSet<>(Arrays.asList(new Question("1","2"))) , out.getQuestions(1));
+        Question ques = new Question("1", "2");
+        when(examinerService.getSizeOfSet()).thenReturn(1);
+        when(examinerService.getRandomQuestion()).thenReturn(ques);
+        assertEquals(new HashSet<>(Arrays.asList(new Question("1", "2"))), out.getQuestions(1));
     }
 }
